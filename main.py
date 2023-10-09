@@ -1,20 +1,19 @@
+from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
 from ui_main import Ui_Form
 
 
-class Main(QWidget):
+class Main:
 
     def __init__(self):
-        super().__init__()
-        # 使用ui文件导入定义界面类
-        self.ui = Ui_Form()
-        # 初始化界面
-        self.ui.setupUi(self)
+        # 从文件中加载UI定义
+
+        self.ui = uic.loadUi("Forms/main.ui")
 
         # 使用界面定义的控件，也是从ui里面访问
 
 
 app = QApplication([])
 main = Main()
-main.show()
+main.ui.show()
 app.exec_()

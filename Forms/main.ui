@@ -9,39 +9,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>400</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>S-DES</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_4">
+  <layout class="QHBoxLayout" name="horizontalLayout_4">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QLabel" name="label_Plain">
-         <property name="text">
-          <string>明文</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPlainTextEdit" name="PlainTextEdit">
-         <property name="plainText">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>在此键入明文</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QPlainTextEdit" name="PlainTextEdit">
+       <property name="placeholderText">
+        <string>在此键入明文</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="pBtn_Encrypt">
          <property name="sizePolicy">
@@ -63,9 +49,23 @@
           </size>
          </property>
          <property name="text">
-          <string>→加密→</string>
+          <string>↓加密↓</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>密钥：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_Key"/>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QPushButton" name="pBtn_Decrypt">
@@ -88,55 +88,48 @@
           </size>
          </property>
          <property name="text">
-          <string>←解密←</string>
+          <string>↑解密↑</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <widget class="QPlainTextEdit" name="CipherTextEdit">
+       <property name="placeholderText">
+        <string>在此键入密文</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLabel" name="label_cipher">
+        <widget class="QLabel" name="label_Crack">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
-          <string>密文</string>
+          <string>已有明密文对？</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="CipherTextBrowser"/>
+        <widget class="QPushButton" name="pBtn_Crack">
+         <property name="text">
+          <string>暴力破解</string>
+         </property>
+        </widget>
        </item>
       </layout>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label_Crack">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>已有明密文对？</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pBtn_Crack">
-       <property name="text">
-        <string>暴力破解</string>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>
