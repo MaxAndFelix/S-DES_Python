@@ -1,6 +1,5 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QWidget
-from ui_main import Ui_Form
+from PyQt5.QtWidgets import *
 
 
 class Main:
