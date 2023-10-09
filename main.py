@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtWidgets import QApplication, QWidget
 from ui_main import Ui_Form
 
 
