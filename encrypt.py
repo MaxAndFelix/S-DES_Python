@@ -79,7 +79,7 @@ def genaration_secret_key(secret_key):
     P10 = [3,5,2,7,4,10,1,9,8,6]
     P8 = [6,3,7,4,8,5,10,9]
     left_shift_1 = [2,3,4,5,1]
-    left_shift_2 = [3,4,5,1,2]
+    left_shift_2 = [2,3,4,5,1]
     middle_txt = []
     for i in range(len(P10)):
         middle_txt.append(secret_key[P10[i]-1])
@@ -109,14 +109,18 @@ def genaration_secret_key(secret_key):
         k2.append(middle_txt[P8[i]-1])
     return k1,k2
     
-def F(input_txt,k):
+def F(input_txt,k,x):
     '''轮函数F'''
     middle_txt = extended_permutation(input_txt)
     middle_txt = wheel_key(middle_txt,k)
     middle_txt_left = middle_txt[:4]
     middle_txt_right = middle_txt[4:]
-    middle_txt_left = s_boxs_1(middle_txt_left)
-    middle_txt_right = s_boxs_1(middle_txt_right)
+    if x==1:
+        middle_txt_left = s_boxs_1(middle_txt_left)
+        middle_txt_right = s_boxs_1(middle_txt_right)
+    else:
+        middle_txt_left = s_boxs_2(middle_txt_left)
+        middle_txt_right = s_boxs_2(middle_txt_right)
     middle_txt.clear()
     middle_txt = middle_txt_left + middle_txt_right
     output_txt = direct_replacement(middle_txt)
@@ -143,11 +147,13 @@ def main_encryption(plaintxt,k):
     middle_txt = IP_replacement(plaintxt)
     left_txt, right_txt = spilt_txt(middle_txt)
     k1,k2 = genaration_secret_key(k)
-    xor_txt = F(right_txt,k1)
+    print(k1)
+    print(k2)
+    xor_txt = F(right_txt,k1,1)
     left_txt = xor(left_txt,xor_txt)
     left_txt,right_txt=right_txt,left_txt
     xor_txt.clear()
-    xor_txt = F(right_txt,k2)
+    xor_txt = F(right_txt,k2,2)
     left_txt = xor(left_txt,xor_txt)
     middle_txt.clear()
     middle_txt = left_txt + right_txt
@@ -158,18 +164,21 @@ def main_decryption(cypnertxt,k):
     middle_txt = IP_replacement(cypnertxt)
     left_txt, right_txt = spilt_txt(middle_txt)
     k1,k2 = genaration_secret_key(k)
-    xor_txt = F(right_txt,k2)
+    xor_txt = F(right_txt,k2,2)
     left_txt = xor(left_txt,xor_txt)
     left_txt,right_txt=right_txt,left_txt
     xor_txt.clear()
-    xor_txt = F(right_txt,k1)
+    xor_txt = F(right_txt,k1,1)
     left_txt = xor(left_txt,xor_txt)
     middle_txt.clear()
     middle_txt = left_txt + right_txt
     plaintxt = IP_replacement_inverse(middle_txt)
     return plaintxt
 if __name__ == '__main__':
-    plaintxt = [1,0,0,1,0,0,1,1]
-    k = [1,0,0,0,1,0,1,1,0,1]
+    # plaintxt = [1,0,0,1,1,0,1,0]
+    # k = [1,0,1,0,0,0,0,0,1,0]
+    plaintxt = [1,0,0,1,0,0,0,0]
+    k = [1,1,0,1,1,0,0,1,1,1]
     cypnertxt = main_encryption(plaintxt,k)
+    print(cypnertxt)
     print(main_decryption(cypnertxt,k))
