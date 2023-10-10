@@ -161,6 +161,7 @@ def main_encryption(plaintxt,k):
     return cipnertxt
 
 def main_decryption(cypnertxt,k):
+    '''解密算法'''
     middle_txt = IP_replacement(cypnertxt)
     left_txt, right_txt = spilt_txt(middle_txt)
     k1,k2 = genaration_secret_key(k)
@@ -174,6 +175,8 @@ def main_decryption(cypnertxt,k):
     middle_txt = left_txt + right_txt
     plaintxt = IP_replacement_inverse(middle_txt)
     return plaintxt
+
+
 if __name__ == '__main__':
     # plaintxt = [1,0,0,1,1,0,1,0]
     # k = [1,0,1,0,0,0,0,0,1,0]
