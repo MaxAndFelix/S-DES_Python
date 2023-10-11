@@ -126,9 +126,9 @@ def F(input_txt, k, x):
     middle_txt_right = middle_txt[4:]
     if x == 1:
         middle_txt_left = s_boxs_1(middle_txt_left)
-        middle_txt_right = s_boxs_1(middle_txt_right)
+        middle_txt_right = s_boxs_2(middle_txt_right)
     else:
-        middle_txt_left = s_boxs_2(middle_txt_left)
+        middle_txt_left = s_boxs_1(middle_txt_left)
         middle_txt_right = s_boxs_2(middle_txt_right)
     middle_txt.clear()
     middle_txt = middle_txt_left + middle_txt_right
@@ -197,7 +197,7 @@ def main_decryption(cypher_txt, k):
 
 if __name__ == '__main__':
     plain_txt = [1, 0, 0, 1, 0, 0, 0, 0]
-    k = [1, 1, 0, 1, 1, 0, 0, 1, 1, 1]
+    k = [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
     cypher_txt = main_encryption(plain_txt, k)
     print(plain_txt)
     print(cypher_txt)
