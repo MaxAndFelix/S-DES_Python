@@ -1,5 +1,9 @@
 import re
 
+from PyQt5.QtCore import Qt, QUrl
+from PyQt5.QtGui import QDesktopServices
+from qfluentwidgets import InfoBar, InfoBarPosition
+
 
 def bit2int(txt):
     return [list(map(int, txt[i:i + 8])) for i in range(0, len(txt), 8)]
@@ -26,3 +30,19 @@ def asc2str(binary_ascii_string):
     binary_values = [binary_ascii_string[i:i + 8] for i in range(0, len(binary_ascii_string), 8)]
     original_string = ''.join([chr(int(binary, 2)) for binary in binary_values])
     return original_string
+
+
+def showErrorInfoBar(parent, text):
+    InfoBar.error(
+        title='警告',
+        content=text,
+        orient=Qt.Horizontal,
+        isClosable=False,  # disable close button
+        position=InfoBarPosition.BOTTOM_RIGHT,
+        duration=2000,
+        parent=parent
+    )
+
+
+def openWebsite(url):
+    QDesktopServices.openUrl(QUrl(url))
