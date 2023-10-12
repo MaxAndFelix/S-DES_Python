@@ -10,8 +10,6 @@ from utils import *
 
 # class Main():
 # noinspection PyArgumentList
-
-
 class Main(QWidget):
     def __init__(self):
         # 从UI定义中动态加载窗口对象
