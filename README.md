@@ -6,7 +6,7 @@
 
 ### GUI😺:
 
-<img src="./png/1.png" alt="Alt text" style="zoom:67%;" />
+<img src="docs/assets/1.png" alt="Alt text" style="zoom:67%;" />
 
 
 
