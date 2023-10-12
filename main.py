@@ -2,6 +2,7 @@
 from PyQt5.QtWidgets import *
 from qfluentwidgets import FluentIcon
 
+from cracker import Cracker
 from ui_main import Ui_Form
 from encrypt import *
 from utils import *
@@ -20,6 +21,10 @@ class Main(QWidget):
         self.ui = Ui_Form()
         self.ui.setupUi(self)
 
+        self.cracker = None
+
+        self.resize(400, 600)
+
         self.ui.rBtn_Bin.setChecked(True)
         self.ui.lineEdit_Key.setClearButtonEnabled(True)
 
@@ -32,6 +37,7 @@ class Main(QWidget):
 
         self.ui.pBtn_Encrypt.clicked.connect(self.encrypt)
         self.ui.pBtn_Decrypt.clicked.connect(self.decrypt)
+        self.ui.pBtn_Crack.clicked.connect(self.openCracker)
 
     def encrypt(self):
         self.ui.cypherTextEdit.clear()
@@ -94,6 +100,13 @@ class Main(QWidget):
             self.ui.plainTextEdit.setPlainText(
                 asc2str(self.ui.plainTextEdit.toPlainText())
             )
+
+    def openCracker(self):
+        if self.cracker is None:  # 仅当Cracker窗口不存在时创建
+            self.cracker = Cracker()
+        self.cracker.show()
+
+
 
 
 QApplication.setHighDpiScaleFactorRoundingPolicy(

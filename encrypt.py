@@ -196,13 +196,9 @@ def main_decryption(cypher_txt, k):
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     plain_txt = [1, 1, 1, 1, 0, 0, 0, 0]
-=======
-    plain_txt = [1, 0, 0, 1, 0, 0, 0, 0]
->>>>>>> 86cd9a2be8dab3453bc8698ebedc9f30ad3d520e
     k = [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
     cypher_txt = main_encryption(plain_txt, k)
-    print(plain_txt)
-    print(cypher_txt)
-    print(main_decryption(cypher_txt, k))
+    print(f'明文：{plain_txt}')
+    print(f'密文：{cypher_txt}')
+    print(f'解密：{main_decryption(cypher_txt, k)}')
