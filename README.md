@@ -6,9 +6,9 @@
 
 ### GUI😺:
 
-![1](.\png\1.png)
+![Alt text](.\png\1.png)
 
-![1](.\png\2.png)
+![Alt text](.\png\2.png)
 
 ### Quickly start!🤖
 
