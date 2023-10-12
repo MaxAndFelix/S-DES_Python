@@ -6,9 +6,9 @@
 
 ### GUI😺:
 
-![Alt text](./png/1.png)
+<img src="./png/1.png" alt="Alt text" style="zoom:67%;" />
 
-![Alt text](./png/2.png)
+
 
 ### Quickly start!🤖
 
