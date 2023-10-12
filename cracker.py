@@ -1,7 +1,4 @@
-import this
-
-from PyQt5.QtWidgets import QWidget, QApplication, QTableWidget, QTableWidgetItem
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QWidget, QTableWidget, QTableWidgetItem
 from qfluentwidgets import TeachingTip, InfoBarIcon, TeachingTipTailPosition
 
 from brute_force_attack import main_brute_force_attack

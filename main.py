@@ -107,8 +107,6 @@ class Main(QWidget):
         self.cracker.show()
 
 
-
-
 QApplication.setHighDpiScaleFactorRoundingPolicy(
     Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
 QApplication.setAttribute(Qt.AA_EnableHighDpiScaling)

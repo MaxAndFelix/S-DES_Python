@@ -71,7 +71,7 @@ def main_brute_force_attack(n, plaintxt, cyphertxt):
         Thread.start()
     Thread_check.join()
     end_time = time.time()
-    return secret_key_list, end_time-start_time
+    return secret_key_list, end_time - start_time
 
 
 if __name__ == '__main__':
