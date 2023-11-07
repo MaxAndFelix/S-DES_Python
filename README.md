@@ -19,3 +19,9 @@ pip install -r requirements.txt
 python main.py
 ```
 
+### Develpoment docs
+
+docs
+docs/开发手册.md
+docs/测试结果.md
+docs/用户手册.md
